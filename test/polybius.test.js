@@ -39,6 +39,30 @@ describe("polybius", () => {
     expect(actualWithSpace).to.be.false;
   });
 
+  it("should encode i and j to 42", () => {
+    //actual results from calling polybius()
+    const actualI = polybius("i");
+    const actualJ = polybius("j");
+
+    // setting up expected results
+    const expectedIAndJ = "42";
+
+    // expect(actual)to.be.equal(expected);
+    expect(actualI).to.be.equal(expectedIAndJ);
+    expect(actualJ).to.be.equal(expectedIAndJ);
+  });
+
+  it("should decode 42 to be (i/j)", () => {
+    //actual results from calling polybius()
+    const actual42 = polybius("42", false);
+
+    // setting up expected results
+    const expected42 = "(i/j)";
+
+    // expect(actual)to.be.equal(expected);
+    expect(actual42).to.be.equal(expected42);
+  });
+
   it("should return the correct decoded response", () => {
     // actual results from calling polybius()
     const actualNoSpace = polybius("5251154233", false);

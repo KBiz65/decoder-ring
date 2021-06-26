@@ -12,7 +12,7 @@ const polybiusModule = (function () {
     if (!input || typeof input !== "string") {
       return false;
     }
-
+    // this sets up the object that will hold the polybius square values
     const alphabet = {
       a: "11",
       b: "21",
@@ -75,7 +75,6 @@ const polybiusModule = (function () {
         }
         return alphabet[char];
       });
-      // console.log("encodedMessage: ", encodedMessage);
       return encodedMessage.join("");
     } else {
       const inputArray = input.split(" ");
@@ -88,10 +87,15 @@ const polybiusModule = (function () {
       const decodedMessage = [];
       inputArray.forEach((word) => {
         for (let i = 0; i < word.length - 1; i++) {
+          // because each character is two numbers long this will get
+          // both numbers.
           numberToDecode = word[i] + word[i + 1];
           decodedMessage.push(alphabet[numberToDecode]);
           i += 1;
         }
+        // to maintain proper spaces a space will be added after each
+        // "word" array is processed. Then it will move on to the next
+        // word from the forEach.
         decodedMessage.push(" ");
       });
       return decodedMessage.join("").trim();

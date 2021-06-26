@@ -64,11 +64,18 @@ describe("substitution", () => {
       "xoyqmcgrukswaflnthdjpzibev",
       false
     );
+    const actualDecode2 = substitution(
+      ")#$$`^#",
+      "`lmo#n^jbuhv)gctfx$dzeswaq",
+      false
+    );
 
     // expected results that should come back from calling substitution
     const expectedDecode = "you are an excellent spy";
+    const expectedDecode2 = "message";
 
     // expect(actual)to.be.equal(expected)
     expect(actualDecode).to.be.equal(expectedDecode);
+    expect(actualDecode2).to.be.equal(expectedDecode2);
   });
 });
